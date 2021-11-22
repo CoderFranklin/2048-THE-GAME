@@ -29,11 +29,28 @@ document.addEventListener('DOMContentLoaded', () =>{
         }
     }
 
+    //swipe right
+    function moverRight(){
+        for (let i =0; i < 16; i++){
+            let totalOne = squares[i].innerHTML,
+            totalTwo = squares[i+1].innerHTML,
+            totalThree = squares[i+2].innerHTML,
+            totalFour = squares[i+3].innerHTML,
+            row = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+            //console.log(totalFour)
+            //console.log(row)
 
-
-
-
-
-
-
+            let filteredRow = row.filter(num => num)
+            //console.log(filteredRow)
+            let missing = 4 - filteredRow.length,
+            zeros = Array(missing).fill(0),
+            //console.log(zeros)
+            newRow = zeros.concat(filteredRow)
+            squares[i].innerHTML =newRow[0];
+            squares[i+1].innerHTML =newRow[1];
+            squares[i+2].innerHTML =newRow[2];
+            squares[i+3].innerHTML =newRow[3];
+        }
+    }
+    moverRight();
 })
