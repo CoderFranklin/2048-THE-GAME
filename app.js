@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 }
             }
+            checkForWin();
         }
 
         function combineColumn(){
@@ -130,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 }
             }
+            checkForWin();
         }
         //assign keycodes
         function control(e){
@@ -173,5 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
             generate();
         }
     
+function checkForWin(){
+    for (let i = 0; squares.length; i++){
+        if(squares[i].innerHTML == 8){
+            resultDisplay.innerHTML = 'You WIN';
+            document.removeEventListener('keyup', control)
+        }
+    }
+}
+
 })
+
+
         
